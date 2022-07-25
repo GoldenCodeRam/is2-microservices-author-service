@@ -1,6 +1,6 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,9 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/author', 'AuthorController@index');
+$router->get('/author/{id}', 'AuthorController@show');
+$router->post('/author', 'AuthorController@store');
+$router->put('/author/{id}', 'AuthorController@update');
+$router->patch('/author/{id}', 'AuthorController@update');
+$router->delete('/author/{id}', 'AuthorContorller@delete');
